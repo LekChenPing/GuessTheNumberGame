@@ -1,0 +1,30 @@
+#libraries
+from random import randint
+
+#constants
+MIN_number = 0
+MAX_number = 100
+target_number = int(randint(MIN_number,MAX_number))
+turn_counter = 1
+
+while(1):
+    guess = int(input("Guess the number in between "+str(MIN_number) +" and "+str(MAX_number) +": "))
+    if guess == target_number:
+        print("Yes! This number is "+str(target_number) + "! ")
+        break
+    elif guess > target_number: #when larger
+        if guess >= MAX_number:
+            print("Good try but miss! The number should not above than or equal to " + str(MAX_number) + " .")
+        else:
+            MAX_number = guess
+            print("Miss! It is no more than " + str(MAX_number) + " ! ")
+    elif guess < target_number:
+        if guess <= MIN_number:
+            print("Good try but miss! The number should not below than or equal to " + str(MIN_number) + " .")
+        else:
+            MIN_number = guess
+            print("Miss! It is no less than " + str(MIN_number) + " ! ")
+    
+    turn_counter += 1
+
+print("Game over! You've spent " + str(turn_counter) + " times to guess the right number! ")
